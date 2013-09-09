@@ -19,6 +19,11 @@ ContactManager.module('ContactsApp.List', function(List,ContactManager,Backbone,
 			//this has to be removed because views doesnt this role. We have to move this to the controller
 			//this.model.collection.remove(this.model);
 			this.trigger("contact:delete",this.model);
+		},
+		remove: function(){
+			this.$el.fadeOut(function(){
+				$(this).remove();
+			});
 		}
 	});
 
@@ -27,7 +32,13 @@ ContactManager.module('ContactsApp.List', function(List,ContactManager,Backbone,
 		className: "table table-hover",
 		template: Handlebars.templates.contactlist,
 		itemView: List.Contact,
-		itemViewContainer: "tbody"
+		itemViewContainer: "tbody",
+
+		onItemviewContactDelete: function(){
+			this.$el.fadeOut(1000,function(){
+				$(this).fadeIn(1000);
+			});
+		}
 	});
 
 });
