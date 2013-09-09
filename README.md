@@ -9,11 +9,11 @@ Marionette a Gentle Introduction is a book that I found googling around,
 I wanted to build an application fast ,scalable and highly maintainable, thats
 how I ended up with Marionette along with backbone js. I'm not sure if its the 
 right choice, but I'll give it a try . I'm building a financial web app for b2c, 
-the application has to be fast and support 10,000.
+the application has to be fast and support 10,000 users.
 
-### Interesting FACTS
+### About the app im building
 
-I'm using
+I'm using for my b2c web app
 --------------
 
 BackEnd
@@ -33,9 +33,8 @@ BackEnd
 FrontEnd
 --------------
 
-- Marionette.js 
-- Backbone
-- Underscore ( I like most mustache but marinette go along with underscore... )
+- Marionette.js andd all dependencies
+- HandleBars ( Not any more underscore , using precompiled templating )
 -  ASP.NEt ( Not sure if It's need it ).
 
 That's for now, this app is just the starting point of a great app that I'm trying to build.
