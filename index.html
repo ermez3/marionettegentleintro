@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="./assets/css/bootstrap.min.css" rel="stylesheet" media="screen">
+	<link href="./assets/css/application.css" rel="stylesheet">
+	<title>Gentle Introduction Marionette</title>
+</head>
+<body>
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<span class="brand">Contact Manager</span>
+			</div>
+		</div>
+	</div>
+	<div id="main-region" class="container">
+		<p>Static content. You I'll notice that it gets replaced by our app as soon as we start it.</p>
+	</div>
+	<script src="./assets/js/vendor/jquery.js"></script>
+	<script src="./assets/js/vendor/json2.js"></script>
+	<script src="./assets/js/vendor/underscore.js"></script>
+	<script src="./assets/js/vendor/backbone.js"></script>
+	<script src="./assets/js/vendor/backbone.marionette.js"></script>
+    <script src="./assets/js/vendor/bootstrap.min.js"></script>
+	<!-- The javascript includes are here -->
+	<script src="./assets/js/app.js"></script>
+	<script src="./assets/js/entities/contact.js"></script>
+	<script src="./assets/js/apps/contacts/list/list_view.js"></script>
+	<script src="./assets/js/apps/contacts/list/list_controller.js"></script>
+
+
+    <script type="text/template" id="static-template">
+ 		<p>This is text that was rendered by our Marionette app.</p>
+	</script>
+	<script type="text/template" id="different-static-template">
+	 <p>Text from a different template...</p>
+	</script>
+	<script type="text/template" id="list-item-template">
+		<li>One item</li>
+	</script>
+	<script type="text/template" id="contact-list-item">
+		<%= firstName %> <%= lastName %>
+	</script>
+</body>
+
+<script type="text/javascript">
+	ContactManager.on("initialize:after",function(){
+		ContactManager.ContactsApp.List.Controller.listContacts();		
+	})
+
+	ContactManager.start();
+</script>
+</html>
