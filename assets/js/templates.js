@@ -22,7 +22,11 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   if (stack1 = helpers.lastName) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.lastName; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "</td>\r\n<td>\r\n	<a href=\"#\" class=\"btn btn-small js-show\">\r\n		<i class=\"icon-remove\"></i>\r\n		Show\r\n	</a>\r\n	<button class=\"btn btn-small js-delete\">\r\n		<i class=\"icon-remove\"></i>\r\n		Delete\r\n	</button>\r\n</td>\r\n\r\n";
+    + "</td>\r\n<td>\r\n	<a href=\"#contacts/";
+  if (stack1 = helpers.id) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.id; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "\" class=\"btn btn-small js-show\">\r\n		<i class=\"icon-remove\"></i>\r\n		Show\r\n	</a>\r\n	<button class=\"btn btn-small js-delete\">\r\n		<i class=\"icon-remove\"></i>\r\n		Delete\r\n	</button>\r\n</td>\r\n\r\n";
   return buffer;
   });
 templates['contactview'] = template(function (Handlebars,depth0,helpers,partials,data) {

@@ -13,7 +13,7 @@ ContactManager.module('ContactsApp.List', function(List,ContactManager,Backbone,
 			});
 
 			contactsListView.on("itemview:contact:show",function(chidlView,model){
-				ContactManager.ContactsApp.Show.Controller.showContact(model);
+				ContactManager.trigger("contact:show",model.get('id'));				
 			});
 
 			ContactManager.mainRegion.show(contactsListView);
