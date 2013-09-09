@@ -5,11 +5,20 @@ ContactManager.module('ContactsApp.List', function(List,ContactManager,Backbone,
 		template: Handlebars.templates.contactlistitem,
 
 		events:{
-			"click": "highlightName"
+			"click": "highlightName",
+			"click button.js-delete": "deleteAction"
 		},
 
-		highlightName: function(){
+		highlightName: function(e){
+			e.preventDefault();
 			this.$el.toggleClass('warning');
+		},
+
+		deleteAction: function(e){
+			e.stopPropagation();
+			//this has to be removed because views doesnt this role. We have to move this to the controller
+			//this.model.collection.remove(this.model);
+			this.trigger("contact:delete",this.model);
 		}
 	});
 

@@ -8,8 +8,12 @@ ContactManager.module('ContactsApp.List', function(List,ContactManager,Backbone,
 				collection: contacts
 			});
 
+			contactsListView.on("itemview:contact:delete",function(chidlView,model){
+				contacts.remove(model);
+			})
+
 			ContactManager.mainRegion.show(contactsListView);
-		}		
+		}
 	}
 
 });
