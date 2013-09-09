@@ -10,7 +10,11 @@ ContactManager.module('ContactsApp.List', function(List,ContactManager,Backbone,
 
 			contactsListView.on("itemview:contact:delete",function(chidlView,model){
 				contacts.remove(model);
-			})
+			});
+
+			contactsListView.on("itemview:contact:show",function(chidlView,model){
+				ContactManager.ContactsApp.Show.Controller.showContact(model);
+			});
 
 			ContactManager.mainRegion.show(contactsListView);
 		}

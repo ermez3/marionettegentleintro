@@ -6,7 +6,8 @@ ContactManager.module('ContactsApp.List', function(List,ContactManager,Backbone,
 
 		events:{
 			"click": "highlightName",
-			"click button.js-delete": "deleteAction"
+			"click button.js-delete": "deleteAction",
+			"click td a.js-show": "showClicked"
 		},
 
 		highlightName: function(e){
@@ -24,7 +25,13 @@ ContactManager.module('ContactsApp.List', function(List,ContactManager,Backbone,
 			this.$el.fadeOut(function(){
 				$(this).remove();
 			});
+		},
+		showClicked: function(e){
+			e.preventDefault();
+			e.stopPropagation();
+			this.trigger("contact:show",this.model);
 		}
+
 	});
 
   List.Contacts = Marionette.CompositeView.extend({
