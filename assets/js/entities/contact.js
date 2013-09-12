@@ -1,6 +1,7 @@
 ContactManager.module('Entities', function(Entities,ContactManager,Backbone, Marionette, $ , _){
 	//Define Model
 	Entities.Contact = Backbone.Model.extend({
+		urlRoot: "contacts",
 		defaults: {
 			firstName: 'No name defined',
 			phoneNumber: 'No number defined'
@@ -8,6 +9,7 @@ ContactManager.module('Entities', function(Entities,ContactManager,Backbone, Mar
 	});
 	//Define collections
 	Entities.ContactCollection = Backbone.Collection.extend({
+		url: "contacts",
 		model: Entities.Contact,
 
 		comparator: function(contact) {
